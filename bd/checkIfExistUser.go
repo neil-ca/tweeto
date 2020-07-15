@@ -18,7 +18,7 @@ func CheckIfExistUser(email string) (models.User, bool, string) {
 
 	condition := bson.M{"email": email}
 
-	var result models.Users
+	var result models.User
 
 	err := col.FindOne(ctx, condition).Decode(&result)
 	ID := result.ID.Hex()

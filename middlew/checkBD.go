@@ -6,7 +6,7 @@ import (
 	"github.com/Neil-uli/tewto/bd"
 )
 
-/*CheckBD niddlew*/
+/*CheckBD middlew*/
 func CheckBD(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if bd.CheckConnection() == 0 {
