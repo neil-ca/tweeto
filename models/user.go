@@ -19,4 +19,5 @@ type User struct {
 	Biography   string             `bson:"biography" json:"biography,omitempt"`
 	Location    string             `bson:"location" json:"location,omitempt"`
 	SiteWeb     string             `bson:"siteweb" json:"siteweb,omitempt"`
+
 }
