@@ -19,6 +19,7 @@ func Handlers() {
 	router.HandleFunc("/modify-profile", middlew.CheckBD(middlew.ValidateJWT(routers.ModifyProfile))).Methods("PUT")
 	router.HandleFunc("/tweet", middlew.CheckBD(middlew.ValidateJWT(routers.RecordTweet))).Methods("POST")
 	router.HandleFunc("/read-tweets", middlew.CheckBD(middlew.ValidateJWT(routers.ReadTweets))).Methods("GET")
+	router.HandleFunc("/delete-tweet", middlew.CheckBD(middlew.ValidateJWT(routers.DeleteTweet))).Methods("DELETE")
 
 
 	PORT := os.Getenv("PORT")
