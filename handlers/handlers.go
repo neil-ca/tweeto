@@ -30,6 +30,7 @@ func Handlers() {
 	router.HandleFunc("/down-relation", middlew.CheckBD(routers.DownRelation)).Methods("DELETE")
 	router.HandleFunc("/consult-relation", middlew.CheckBD(routers.ConsultRelation)).Methods("GET")
 	router.HandleFunc("/list-users", middlew.CheckBD(routers.ListUsers)).Methods("GET")
+	router.HandleFunc("/read-tweets-followers", middlew.CheckBD(routers.ReadTweetsFollowers)).Methods("GET")
 
 
 	PORT := os.Getenv("PORT")

@@ -12,7 +12,7 @@ func InsertTweet(t models.RecordTweet)(string, bool, error){
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
-	db := MongoC.Database(("tewto"))
+	db := MongoC.Database("tewto")
 	col := db.Collection("tweet")
 
 	registry := bson.M{
