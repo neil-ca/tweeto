@@ -29,7 +29,7 @@ func Handlers() {
 	router.HandleFunc("/up-relation", middlew.CheckBD(routers.UpRelation)).Methods("POST")
 	router.HandleFunc("/down-relation", middlew.CheckBD(routers.DownRelation)).Methods("DELETE")
 	router.HandleFunc("/consult-relation", middlew.CheckBD(routers.ConsultRelation)).Methods("GET")
-
+	router.HandleFunc("/list-users", middlew.CheckBD(routers.ListUsers)).Methods("GET")
 
 
 	PORT := os.Getenv("PORT")
