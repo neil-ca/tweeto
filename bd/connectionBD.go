@@ -11,7 +11,7 @@ import (
 /*MongoC obj*/
 var MongoC = ConnectionBD()
 
-var clientOptions = options.Client().ApplyURI("mongodb+srv://dbUser:zPoCaCD9tEl5CyX2@cluster0.1sokj.mongodb.net/<dbname>?retryWrites=true&w=majority")
+var clientOptions = options.Client().ApplyURI("mongodb+srv://dbUser:zPoCaCD9tEl5CyX2@cluster0.1sokj.mongodb.net/tweeto?retryWrites=true&w=majority")
 
 /*ConnectionBD func for conn*/
 func ConnectionBD() *mongo.Client {
