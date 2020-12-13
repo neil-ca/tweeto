@@ -1,1 +1,28 @@
-version: 3.8
+version: "3.8"
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    depends_on:
+      - database
+    networks:
+      - default
+    ports:
+      - "8080:8080"
+  database:
+    image: 'mongo'
+    container_name: 'my-mongo'
+    environment:
+      - MONGO_INITDB_DATABASE=tweeto
+      - MONGO_INITDB_ROOT_USERNAME=tweeto
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    volumes: 
+    # Means you want to copy init-mongo.js to /docker-.. as read only file
+    # is a folder that already created inside the mongo container used for
+    # initiating database, so we copy our script to that folder
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo-volume:/data/db
+    ports:
+      - '27017-27019:27017-27019'
