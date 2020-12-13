@@ -1,2 +1,29 @@
-## API written in Go with authentication..
-![alt text](https://static1.squarespace.com/static/5e10bdc20efb8f0d169f85f9/5e949913434baa2223121b85/5ea42d0c36c5d45a8f382a52/1592907069258/soldering.png?format=1500w)
+# API with model in Twitter application using Golang and MongoDB :boom: :whale:
+
+## build up
+
+```sh
+docker build -t tweto:v1 .
+docker run --name tweto -p 8080:8080 tweto:v1
+```
+
+## Endpoints exposed
+
+|     Endpoint      | Method |        Description         |
+| :---------------: | :----: | :------------------------: |
+|     /register     |  POST  |      Register a user       |
+|      /login       |  POST  |       Logging to app       |
+|     /profile      |  GET   |    View profile details    |
+|     /profile      |  PUT   |       Update profile       |
+|      /tweet       |  POST  |       Create a tweet       |
+|      /tweets      |  GET   |     Get list of tweets     |
+|      /tweet       | DELETE |       Delete a tweet       |
+|      /avatar      |  POST  |        Up a avatar         |
+|      /avatar      |  GET   |        Get a avatar        |
+|      /banner      |  POST  |        Up a banner         |
+|      /banner      |  GET   |        Get a banner        |
+|      /follow      |  POST  |      Follow a person       |
+|     /unfollow     | DELETE |     Unfollow a person      |
+|     /relation     |  GET   |  Check if follow someone   |
+|      /users       |  GET   |       List of users        |
+| /tweets/followers |  GET   | List of tweets that follow |
