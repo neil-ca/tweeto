@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   server:
+    container_name: 'api'
     build:
       context: .
       dockerfile: Dockerfile
@@ -14,6 +15,7 @@ services:
   database:
     image: 'mongo'
     container_name: 'my-mongo'
+    restart: always
     environment:
       - MONGO_INITDB_DATABASE=tweeto
       - MONGO_INITDB_ROOT_USERNAME=tweeto
@@ -25,4 +27,4 @@ services:
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - ./mongo-volume:/data/db
     ports:
-      - '27017-27019:27017-27019'
+      - '27017:27017'

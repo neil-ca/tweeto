@@ -1,6 +1,6 @@
 FROM golang:alpine
 
-WORKDIR /tewto
+WORKDIR /tweeto
 
 COPY go.mod go.sum ./
 

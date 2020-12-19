@@ -17,7 +17,7 @@ var _ = godotenv.Load(".env")
 /*MongoC obj*/
 var MongoC = ConnectionBD()
 
-var clientOptions = options.Client().ApplyURI(os.Getenv("MONGO_URL2"))
+var clientOptions = options.Client().ApplyURI(os.Getenv("MONGO_URL"))
 
 /*ConnectionBD func for conn*/
 func ConnectionBD() *mongo.Client {
