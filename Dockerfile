@@ -1,14 +1,15 @@
-FROM golang:alpine
+FROM golang:alpine AS build
 
-WORKDIR /tweeto
+WORKDIR /go/src/build
 
-COPY go.mod go.sum ./
+COPY . . 
 
-RUN go mod download
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o ./main ./main.go
 
-COPY . .
+FROM alpine:latest
 
-RUN go build -o main .
+COPY --from=build /go/src/build .
+RUN chmod +x ./main
 
 EXPOSE 8080
 
