@@ -3,8 +3,11 @@
 ## build up
 
 ```sh
-docker build -t tweto:v1 .
-docker run --name tweto -p 8080:8080 tweto:v1
+docker build -t ulicode/api:v1 .
+docker run --name tweeto -p 8080:8080 ulicode/api:v1
+
+kubectl create -f deploy.yaml
+kubectl expose deployment server-go --type=NodePort
 ```
 
 ## Endpoints exposed
