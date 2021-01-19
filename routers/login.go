@@ -1,25 +1,26 @@
 package routers
 
-import(
+import (
 	"encoding/json"
 	"net/http"
 	"time"
+
 	"github.com/Neil-uli/tewto/bd"
 	"github.com/Neil-uli/tewto/jwt"
 	"github.com/Neil-uli/tewto/models"
 )
 
 func Login(w http.ResponseWriter, r *http.Request) {
-	w.Header().Add("content-type","application/json")
+	w.Header().Add("content-type", "application/json")
 
 	var t models.User
-	err := json .NewDecoder(r.Body).Decode(&t)
+	err := json.NewDecoder(r.Body).Decode(&t)
 	if err != nil {
-		http.Error(w, "Invalid username and password"+err.Error(),400)
+		http.Error(w, "Invalid username and password"+err.Error(), 400)
 		return
 	}
-	if len(t.Email)==0 {
-		http.Error(w, "The email field is required"+err.Error(),400)
+	if len(t.Email) == 0 {
+		http.Error(w, "The email field is required"+err.Error(), 400)
 		return
 	}
 	document, exist := bd.TryLogin(t.Email, t.Password)
@@ -32,8 +33,8 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "an error occurred while trying to generate the corresponding token"+err.Error(), 400)
 		return
 	}
-	resp := models.ResponseLogin {
-		Token : jwtKey,
+	resp := models.ResponseLogin{
+		Token: jwtKey,
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
@@ -41,8 +42,8 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	expirationTime := time.Now().Add(24 * time.Hour)
 	http.SetCookie(w, &http.Cookie{
-		Name: "token",
-		Value: jwtKey,
+		Name:    "token",
+		Value:   jwtKey,
 		Expires: expirationTime,
 	})
 }
