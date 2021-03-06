@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/Neil-uli/tewto/middlew"
-	"github.com/Neil-uli/tewto/routers"
+	"github.com/Neil-uli/tweeto/middlew"
+	"github.com/Neil-uli/tweeto/routers"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
@@ -30,7 +30,7 @@ func Handlers() {
 	router.HandleFunc("/unfollow", middlew.CheckBD(routers.DownRelation)).Methods("DELETE")
 	router.HandleFunc("/relation", middlew.CheckBD(routers.ConsultRelation)).Methods("GET")
 	router.HandleFunc("/list/users", middlew.CheckBD(routers.ListUsers)).Methods("GET")
-	router.HandleFunc("/tweets/followers", middlew.CheckBD(routers.ReadTweetsFollowers)).Methods("GET")
+	router.HandleFunc("/tweetsFollowers", middlew.CheckBD(routers.ReadTweetsFollowers)).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {

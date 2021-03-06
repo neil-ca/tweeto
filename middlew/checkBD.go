@@ -3,7 +3,7 @@ package middlew
 import (
 	"net/http"
 
-	"github.com/Neil-uli/tewto/bd"
+	"github.com/Neil-uli/tweeto/bd"
 )
 
 /*CheckBD middlew*/

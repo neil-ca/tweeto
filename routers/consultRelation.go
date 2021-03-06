@@ -2,9 +2,10 @@ package routers
 
 import (
 	"encoding/json"
-	"github.com/Neil-uli/tewto/bd"
-	"github.com/Neil-uli/tewto/models"
 	"net/http"
+
+	"github.com/Neil-uli/tweeto/bd"
+	"github.com/Neil-uli/tweeto/models"
 )
 
 func ConsultRelation(w http.ResponseWriter, r *http.Request) {
@@ -18,9 +19,9 @@ func ConsultRelation(w http.ResponseWriter, r *http.Request) {
 
 	status, err := bd.ConsultRelation(t)
 	if err != nil || status == false {
-		resp.Status=false
-	}else {
-		resp.Status=true
+		resp.Status = false
+	} else {
+		resp.Status = true
 	}
 
 	w.Header().Set("Content-Type", "application/json")

@@ -2,9 +2,10 @@ package routers
 
 import (
 	"encoding/json"
-	"github.com/Neil-uli/tewto/bd"
 	"net/http"
 	"strconv"
+
+	"github.com/Neil-uli/tweeto/bd"
 )
 
 func ReadTweets(w http.ResponseWriter, r *http.Request) {
@@ -19,7 +20,7 @@ func ReadTweets(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	page, err := strconv.Atoi(r.URL.Query().Get("page"))
-	if err!= nil {
+	if err != nil {
 		http.Error(w, "You must send the page with a value greater than 0", http.StatusBadRequest)
 		return
 	}

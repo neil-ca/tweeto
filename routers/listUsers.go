@@ -2,9 +2,10 @@ package routers
 
 import (
 	"encoding/json"
-	"github.com/Neil-uli/tewto/bd"
 	"net/http"
 	"strconv"
+
+	"github.com/Neil-uli/tweeto/bd"
 )
 
 func ListUsers(w http.ResponseWriter, r *http.Request) {
@@ -14,7 +15,7 @@ func ListUsers(w http.ResponseWriter, r *http.Request) {
 
 	pagTemp, err := strconv.Atoi(page)
 	if err != nil {
-		http.Error(w, "The page parameter must be greater than ",http.StatusBadRequest)
+		http.Error(w, "The page parameter must be greater than ", http.StatusBadRequest)
 		return
 	}
 
@@ -22,7 +23,7 @@ func ListUsers(w http.ResponseWriter, r *http.Request) {
 
 	result, status := bd.ReadAllUsers(IDUser, pag, search, typeUser)
 	if status == false {
-		http.Error(w, "Error to read users ",http.StatusBadRequest)
+		http.Error(w, "Error to read users ", http.StatusBadRequest)
 		return
 	}
 	w.Header().Set("Content-type", "application/json")

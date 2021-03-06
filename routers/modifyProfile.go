@@ -3,11 +3,12 @@ package routers
 import (
 	"encoding/json"
 	"net/http"
-	"github.com/Neil-uli/tewto/bd"
-	"github.com/Neil-uli/tewto/models"
+
+	"github.com/Neil-uli/tweeto/bd"
+	"github.com/Neil-uli/tweeto/models"
 )
 
-func ModifyProfile(w http.ResponseWriter, r *http.Request){
+func ModifyProfile(w http.ResponseWriter, r *http.Request) {
 	var t models.User
 
 	err := json.NewDecoder(r.Body).Decode(&t)
@@ -18,7 +19,7 @@ func ModifyProfile(w http.ResponseWriter, r *http.Request){
 	var status bool
 	status, err = bd.ModifyRegister(t, IDUser)
 	if err != nil {
-		http.Error(w, "Error trying to edit the registry"+err.Error(),400)
+		http.Error(w, "Error trying to edit the registry"+err.Error(), 400)
 		return
 	}
 	if status == false {

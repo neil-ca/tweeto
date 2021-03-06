@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/Neil-uli/tewto/models"
+	"github.com/Neil-uli/tweeto/models"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 

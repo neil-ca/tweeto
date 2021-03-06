@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Neil-uli/tewto/bd"
-	"github.com/Neil-uli/tewto/jwt"
-	"github.com/Neil-uli/tewto/models"
+	"github.com/Neil-uli/tweeto/bd"
+	"github.com/Neil-uli/tweeto/jwt"
+	"github.com/Neil-uli/tweeto/models"
 )
 
 func Login(w http.ResponseWriter, r *http.Request) {

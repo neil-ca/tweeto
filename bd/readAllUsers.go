@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Neil-uli/tewto/models"
+	"github.com/Neil-uli/tweeto/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -20,9 +20,10 @@ func ReadAllUsers(ID string, page int64, search string, typ string) ([]*models.U
 	var results []*models.User
 
 	findOptions := options.Find()
-	findOptions.SetSkip((page -1)*20)
+	findOptions.SetSkip((page - 1) * 20)
 	findOptions.SetLimit(20)
 
+	// M is an unordered representation of a BSON document. bson.M{"foo": "bar", "hello": "world", "pi": 3.14159}
 	query := bson.M{
 		"name": bson.M{"$regex": `(?i)` + search},
 	}
@@ -33,7 +34,7 @@ func ReadAllUsers(ID string, page int64, search string, typ string) ([]*models.U
 	}
 	var found, include bool
 
-	for cur.Next(ctx){
+	for cur.Next(ctx) {
 		var s models.User
 		err := cur.Decode(&s)
 		if err != nil {
@@ -42,23 +43,23 @@ func ReadAllUsers(ID string, page int64, search string, typ string) ([]*models.U
 		}
 
 		var r models.Relation
-		r.UserID=ID
-		r.UserRelationID=s.ID.Hex()
+		r.UserID = ID
+		r.UserRelationID = s.ID.Hex()
 
 		include = false
 
 		found, err = ConsultRelation(r)
 		if typ == "new" && found == false {
-			include=true
+			include = true
 		}
 		if typ == "follow" && found == true {
-			include=true
+			include = true
 		}
 
 		if r.UserRelationID == ID {
 			include = false
 		}
-		if include==true {
+		if include == true {
 			findOptions.SetProjection(
 				bson.M{
 					"email":     0,
@@ -67,7 +68,6 @@ func ReadAllUsers(ID string, page int64, search string, typ string) ([]*models.U
 					"biography": 0,
 					"location":  0,
 					"siteWeb":   0,
-
 				},
 			)
 			results = append(results, &s)

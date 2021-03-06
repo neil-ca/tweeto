@@ -1,20 +1,21 @@
 package routers
 
 import (
-	"github.com/Neil-uli/tewto/bd"
 	"net/http"
+
+	"github.com/Neil-uli/tweeto/bd"
 )
 
-func DeleteTweet(w http.ResponseWriter, r *http.Request){
+func DeleteTweet(w http.ResponseWriter, r *http.Request) {
 	ID := r.URL.Query().Get("id")
-	if len(ID)<1 {
-		http.Error(w, "I need id",http.StatusBadRequest)
+	if len(ID) < 1 {
+		http.Error(w, "I need id", http.StatusBadRequest)
 		return
 	}
 
 	err := bd.DeleteTweet(ID, IDUser)
 	if err != nil {
-		http.Error(w, "I cant delete"+err.Error(),http.StatusBadRequest)
+		http.Error(w, "I cant delete"+err.Error(), http.StatusBadRequest)
 		return
 	}
 

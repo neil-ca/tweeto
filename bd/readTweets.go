@@ -2,14 +2,15 @@ package bd
 
 import (
 	"context"
-	"github.com/Neil-uli/tewto/models"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
 	"time"
+
+	"github.com/Neil-uli/tweeto/models"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func ReadTweets(ID string, page int64)([]*models.GetTweets, bool) {
+func ReadTweets(ID string, page int64) ([]*models.GetTweets, bool) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 

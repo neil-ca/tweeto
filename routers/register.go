@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/Neil-uli/tewto/bd"
-	"github.com/Neil-uli/tewto/models"
+	"github.com/Neil-uli/tweeto/bd"
+	"github.com/Neil-uli/tweeto/models"
 )
 
 /*Register create in bd*/

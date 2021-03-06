@@ -3,10 +3,11 @@ package routers
 import (
 	"encoding/json"
 	"net/http"
-	"github.com/Neil-uli/tewto/bd"
+
+	"github.com/Neil-uli/tweeto/bd"
 )
 
-func ViewProfile(w http.ResponseWriter, r *http.Request){
+func ViewProfile(w http.ResponseWriter, r *http.Request) {
 	ID := r.URL.Query().Get("id")
 	if len(ID) < 1 {
 		http.Error(w, "You must send the id", http.StatusBadRequest)
@@ -14,7 +15,7 @@ func ViewProfile(w http.ResponseWriter, r *http.Request){
 	}
 
 	profile, err := bd.SearchProfile(ID)
-	if err != nil{
+	if err != nil {
 		http.Error(w, "Could not find the record"+err.Error(), 400)
 		return
 	}

@@ -3,12 +3,13 @@ package bd
 import (
 	"context"
 	"fmt"
-	"github.com/Neil-uli/tewto/models"
-	"go.mongodb.org/mongo-driver/bson"
 	"time"
+
+	"github.com/Neil-uli/tweeto/models"
+	"go.mongodb.org/mongo-driver/bson"
 )
 
-func ConsultRelation(t models.Relation) (bool,error) {
+func ConsultRelation(t models.Relation) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
@@ -16,7 +17,7 @@ func ConsultRelation(t models.Relation) (bool,error) {
 	col := db.Collection("relation")
 
 	condition := bson.M{
-		"userid": t.UserID,
+		"userid":         t.UserID,
 		"userrelationid": t.UserRelationID,
 	}
 

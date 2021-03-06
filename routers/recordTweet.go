@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Neil-uli/tewto/bd"
-	"github.com/Neil-uli/tewto/models"
+	"github.com/Neil-uli/tweeto/bd"
+	"github.com/Neil-uli/tweeto/models"
 )
 
 func RecordTweet(w http.ResponseWriter, r *http.Request) {
@@ -14,17 +14,17 @@ func RecordTweet(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(&message)
 
 	registry := models.RecordTweet{
-		UserID: IDUser,
+		UserID:  IDUser,
 		Message: message.Message,
-		Date: time.Now(),
+		Date:    time.Now(),
 	}
 
 	_, status, err := bd.InsertTweet(registry)
 	if err != nil {
-		http.Error(w, "error when trying to insert the record" + err.Error(), 400)
+		http.Error(w, "error when trying to insert the record"+err.Error(), 400)
 		return
 	}
-	if status == false{
+	if status == false {
 		http.Error(w, "empty register", 400)
 		return
 	}

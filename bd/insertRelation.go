@@ -1,11 +1,13 @@
 package bd
+
 import (
 	"context"
-	"github.com/Neil-uli/tewto/models"
 	"time"
+
+	"github.com/Neil-uli/tweeto/models"
 )
 
-func InsertRelation(t models.Relation) (bool, error){
+func InsertRelation(t models.Relation) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
@@ -13,7 +15,7 @@ func InsertRelation(t models.Relation) (bool, error){
 	col := db.Collection("relation")
 
 	_, err := col.InsertOne(ctx, t)
-	if err != nil{
+	if err != nil {
 		return false, err
 	}
 	return true, nil

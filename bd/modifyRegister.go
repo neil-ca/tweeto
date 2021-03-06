@@ -3,12 +3,13 @@ package bd
 import (
 	"context"
 	"time"
-	"github.com/Neil-uli/tewto/models"
+
+	"github.com/Neil-uli/tweeto/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-func ModifyRegister(u models.User, ID string) (bool,error){
+func ModifyRegister(u models.User, ID string) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
@@ -43,8 +44,8 @@ func ModifyRegister(u models.User, ID string) (bool,error){
 	updtString := bson.M{
 		"$set": registry,
 	}
-	objID, _:= primitive.ObjectIDFromHex(ID)
-	filter := bson.M{"_id":bson.M{"$eq":objID}}
+	objID, _ := primitive.ObjectIDFromHex(ID)
+	filter := bson.M{"_id": bson.M{"$eq": objID}}
 
 	_, err := col.UpdateOne(ctx, filter, updtString)
 	if err != nil {

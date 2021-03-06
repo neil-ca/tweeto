@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/Neil-uli/tewto/bd"
+	"github.com/Neil-uli/tweeto/bd"
 )
 
 func GetAvatar(w http.ResponseWriter, r *http.Request) {

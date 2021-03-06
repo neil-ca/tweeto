@@ -6,8 +6,6 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
-	//go-lint
-	_ "github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
