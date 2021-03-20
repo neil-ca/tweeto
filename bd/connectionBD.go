@@ -3,7 +3,6 @@ package bd
 import (
 	"context"
 	"log"
-	"os"
 
 	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
