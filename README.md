@@ -11,6 +11,9 @@ kubectl create -f deploy.yaml
 kubectl expose deployment server-go --type=NodePort
 ```
 
+
+## Database 
+
 ## Endpoints exposed
 
 |     Endpoint      | Method |        Description         |
