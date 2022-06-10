@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Neil-uli/tweeto/bd"
-	"github.com/Neil-uli/tweeto/models"
+	"github.com/ulicod3/tweeto/bd"
+	"github.com/ulicod3/tweeto/models"
 )
 
 func UpBanner(w http.ResponseWriter, r *http.Request) {

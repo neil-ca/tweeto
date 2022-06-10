@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/Neil-uli/tweeto/bd"
-	"github.com/Neil-uli/tweeto/handlers"
+	"github.com/ulicod3/tweeto/bd"
+	"github.com/ulicod3/tweeto/handlers"
 )
 
 func main() {

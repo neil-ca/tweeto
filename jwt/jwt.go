@@ -3,8 +3,8 @@ package jwt
 import (
 	"time"
 
-	"github.com/Neil-uli/tweeto/models"
 	jwt "github.com/dgrijalva/jwt-go"
+	"github.com/ulicod3/tweeto/models"
 )
 
 func GenerateJWT(t models.User) (string, error) {

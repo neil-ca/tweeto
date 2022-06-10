@@ -1,7 +1,7 @@
 package bd
 
 import (
-	"github.com/Neil-uli/tweeto/models"
+	"github.com/ulicod3/tweeto/models"
 	"golang.org/x/crypto/bcrypt"
 )
 

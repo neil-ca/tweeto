@@ -4,9 +4,9 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/Neil-uli/tweeto/bd"
-	"github.com/Neil-uli/tweeto/models"
 	jwt "github.com/dgrijalva/jwt-go"
+	"github.com/ulicod3/tweeto/bd"
+	"github.com/ulicod3/tweeto/models"
 )
 
 var Email string

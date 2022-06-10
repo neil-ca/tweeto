@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/Neil-uli/tweeto/middlew"
-	"github.com/Neil-uli/tweeto/routers"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
+	"github.com/ulicod3/tweeto/middlew"
+	"github.com/ulicod3/tweeto/routers"
 )
 
 func Handlers() {
